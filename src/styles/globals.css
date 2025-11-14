@@ -1,0 +1,51 @@
+:root{
+  --color-primary: #FF6B6B;
+  --color-secondary: #FFFFFF;
+  --color-accent-1: #4ECDC4;
+  --color-accent-2: #1A535C;
+  --gray-1: #E6E6E6;
+  --gray-2: #7F7F7F;
+  --text-color: #000000;
+  --container: 1100px;
+}
+
+/* baseline */
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial;margin:0;color:var(--text-color);background:#fff}
+.container{max-width:var(--container);margin:0 auto;padding:24px}
+
+/* header/footer (behåller dina tidigare regler) */
+.site-header{border-bottom:1px solid #eee;background:#fff}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px}
+.nav a{margin-right:16px;text-decoration:none;color:inherit}
+.btn-login{padding:8px 12px;border-radius:6px;background:transparent;border:1px solid #ccc;color:var(--text-color);text-decoration:none}
+
+/* Buttons: primary bg + secondary text */
+.btn-primary{
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Inputs: background gray-1 */
+input, textarea, select {
+  background: var(--gray-1);
+  border: 1px solid transparent;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: var(--text-color);
+  width: 100%;
+  font-size: 15px;
+}
+
+/* Forms: small spacing */
+.auth-box label { display:block; margin-top:12px; font-size:13px; color:var(--gray-2) }
+.auth-box input { margin-top:6px; }
+
+/* Small helpers */
+.meta{color:var(--gray-2);font-size:13px}
+.hero-left h1{margin:0 0 8px 0}
