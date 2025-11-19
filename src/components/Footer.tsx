@@ -1,33 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 export default function Footer() {
+  const { user } = useAuth();
+
   return (
     <footer className="site-footer">
-      <div className="container footer-inner">
-        <div className="footer-left">
-          <div className="logo">EventSpace</div>
+      <div className="footer-inner">
+
+        {/* LEFT LOGO */}
+        <div className="footer-logo">
+          <img src="/images/logo-footer.png" alt="EventSpace logo" />
         </div>
 
+        {/* LINKS */}
         <div className="footer-links">
           <div className="col">
             <Link to="/">Home</Link>
             <Link to="/venues">Venues</Link>
             <Link to="/about">About us</Link>
           </div>
+
           <div className="col">
-            <Link to="/my-booking">My booking</Link>
+            {user && (
+              <>
+                <Link to="/my-venues">My venues</Link>
+                <Link to="/my-bookings">My bookings</Link>
+              </>
+            )}
             <Link to="/contact">Contact us</Link>
           </div>
         </div>
 
+        {/* RIGHT SOCIAL */}
         <div className="footer-right">
-          <div>Follow us</div>
+          <div className="follow-text">Follow us</div>
           <div className="social-icons">
-            <img alt="facebook" src="/icons/facebook.svg" />
-            <img alt="instagram" src="/icons/instagram.svg" />
+            <img src="/images/footer-fb.png" alt="Facebook" />
+            <img src="/images/footer-ig.png" alt="Instagram" />
           </div>
         </div>
+
       </div>
     </footer>
   );

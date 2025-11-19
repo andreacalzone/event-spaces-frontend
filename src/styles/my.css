@@ -1,0 +1,102 @@
+.my-grid {
+  max-width: 1100px;
+  margin: 30px auto 80px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.booking-card,
+.venue-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.booking-img,
+.venue-card-img {
+  width: 100%;
+  height: 160px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.venue-form-box {
+  max-width: 640px;
+  margin: 0 auto 40px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.venue-form-box h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.venue-form-box label {
+  display: block;
+  margin-top: 14px;
+  color: #444;
+  font-weight: 500;
+}
+
+.venue-form-box input,
+.venue-form-box textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: #eee;
+  border: none;
+  border-radius: 8px;
+  margin-top: 6px;
+}
+
+.venue-form-box textarea {
+  height: 140px;
+  resize: vertical;
+}
+
+.my-venue-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border: 1px solid #eee;
+}
+
+.my-venue-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* TWO COLUMN WRAPPER */
+.my-venues-wrapper {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* LEFT COLUMN */
+.left-column {
+  position: sticky;
+  top: 100px;
+}
+
+/* RIGHT COLUMN */
+.right-column h2 {
+  margin-top: 0;
+}
+
+/* GRID FOR VENUE CARDS */
+.my-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+

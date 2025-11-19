@@ -1,33 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { fetchVenues } from "../services/api";
+import VenueCard from "../components/VenueCard";
+import type { Venue } from "../types";
+
+import "../styles/home.css";
+import "../styles/hero.css";
+import "../styles/footer.css";
+
+
 import Hero from "../components/Hero";
-import { Link } from "react-router-dom";
 
 export default function Home() {
+  const [venues, setVenues] = useState<Venue[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchVenues()
+      .then((data) => setVenues(data))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
-    <div>
+    <div className="home-wrapper">
       <Hero />
 
-      <section className="why-choose container">
+      <section className="why-section">
         <h2>Why choose us?</h2>
-        <div className="three-grid">
-          <div className="card">
-            <img src="/why1.jpg" alt="" />
-            <p>Great locations</p>
+
+        <div className="why-grid">
+          <div className="why-card">
+            <img src="/images/why1.png" alt="" />
           </div>
-          <div className="card">
-            <img src="/why2.jpg" alt="" />
-            <p>Trusted hosts</p>
+
+          <div className="why-card">
+            <img src="/images/why2.png" alt="" />
           </div>
-          <div className="card">
-            <img src="/why3.jpg" alt="" />
-            <p>Easy booking</p>
+
+          <div className="why-card">
+            <img src="/images/why3.png" alt="" />
           </div>
         </div>
       </section>
 
-      <section className="container venues-list">
+      <section className="venues-preview">
         <h2>Available venues</h2>
-        <Link to="/venues">See all venues</Link>
+        <a className="see-all" href="/venues">See all venues →</a>
+      </section>
+
+      <section className="home-venues-grid">
+        {venues.slice(0, 8).map((v) => (
+          <VenueCard key={v.id} venue={v} />
+        ))}
       </section>
     </div>
   );

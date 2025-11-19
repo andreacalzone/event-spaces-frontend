@@ -1,0 +1,104 @@
+.home-wrapper {
+  margin-top: 20px;
+}
+
+/* WHY CHOOSE US */
+.why-section {
+  max-width: 1100px;
+  margin: 60px auto 20px auto;
+  text-align: center;
+}
+
+.why-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.why-card {
+  background: #f4fafa;
+  border-radius: 20px;
+  padding: 0px;
+  width: 260px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.why-card img {
+  width: 100%;
+}
+
+.why-card h4 {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+/* Venues preview */
+.venues-preview {
+  max-width: 1100px;
+  margin: 70px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.see-all {
+  font-size: 16px;
+}
+
+/* CARD STYLING (same as venues page) */
+.venue-card {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.venue-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.venue-body {
+  padding: 14px;
+}
+
+/* HOME VENUES GRID */
+.home-venues-grid {
+  max-width: 1100px;
+  margin: 20px auto 80px auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* Individual card fix on home */
+.venue-card {
+  background: #fff;
+  border-radius: 16px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.venue-card img {
+  width: 100%;
+  height: 140px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.venue-card h3 {
+  font-size: 16px;
+  margin: 8px 0 4px;
+}
+
+.venue-card p {
+  font-size: 14px;
+  opacity: 0.8;
+}

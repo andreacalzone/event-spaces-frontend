@@ -8,7 +8,8 @@ import VenueDetail from "./pages/VenueDetail";
 import BookingConfirm from "./pages/BookingConfirm";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import MyBooking from "./pages/MyBooking";
+import MyBookings from "./pages/MyBooking";
+import MyVenues from "./pages/MyVenues";
 
 export default function App() {
   return (
@@ -22,7 +23,8 @@ export default function App() {
           <Route path="/booking/confirm" element={<BookingConfirm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/my-booking" element={<MyBooking />} />
+          <Route path="/my-bookings" element={<MyBookings />} />
+          <Route path="/my-venues" element={<MyVenues />} />
         </Routes>
       </main>
       <Footer />

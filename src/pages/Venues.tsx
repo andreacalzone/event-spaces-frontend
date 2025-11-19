@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchVenues } from "../services/api";
 import VenueCard from "../components/VenueCard";
 import type { Venue } from "../types";
+import "../styles/venues.css";
 
 export default function Venues() {
   const [venues, setVenues] = useState<Venue[]>([]);

@@ -1,0 +1,139 @@
+/* WRAPPER */
+.checkout-wrapper {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* HERO BANNER */
+.checkout-banner {
+  background: #ff7f7f;
+  color: white;
+  padding: 18px;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* GRID LAYOUT */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PAY BOX */
+.payment-box {
+  background: white;
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.payment-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 110px);
+  gap: 18px;
+  margin: 24px 0 32px 0;
+}
+
+.payment-icons img {
+  width: 110px;
+  height: auto;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e7e7e7;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.payment-icons img:hover {
+  border-color: #ff9d9d;
+  transform: scale(1.05);
+}
+
+.payment-icons img.selected {
+  border-color: 2px solid #ff6f6f;
+  box-shadow: 0 0 0 4px rgba(255, 126, 126, 0.25);
+}
+
+.pay-btn {
+  width: 200px;
+}
+
+/* SUMMARY BOX */
+.summary-box {
+  background: white;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  max-width: 380px;
+}
+
+.summary-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.summary-location {
+  margin-top: 4px;
+}
+
+.summary-meta {
+  color: #555;
+  font-size: 14px;
+}
+
+.summary-dates {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.summary-total {
+  margin-top: 12px;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.payment-success-backdrop {
+  position: fixed;
+  top: 0;          /* ← Lägg till */
+  left: 0;         /* ← Lägg till */
+  width: 100vw;    /* ← Lägg till */
+  height: 100vh;   /* ← Lägg till */
+
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;   /* ← Höj ännu mer för säkerhet */
+}
+
+.payment-success-modal {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  text-align: center;
+  width: 420px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  animation: pop 0.35s ease-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.75); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+

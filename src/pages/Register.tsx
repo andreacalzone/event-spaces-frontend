@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import api from "../services/api";
+import axios from "axios";
+import { useAuth } from "../hooks/useAuth";
+import "../styles/auth.css";
+
+const API_URL = "http://localhost:5050/api/auth";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -8,25 +12,30 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [repeat, setRepeat] = useState("");
   const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
     if (password !== repeat) {
       alert("Passwords must match");
       return;
     }
+
     setLoading(true);
+
     try {
-      const res = await api.post("/api/auth/register", { name, email, password });
-      const { token, user } = res.data || {};
-      if (token) {
-        localStorage.setItem("token", token);
-        api.defaults.headers.common.Authorization = `Bearer ${token}`;
-      }
-      if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
-      }
+      const res = await axios.post(`${API_URL}/register`, {
+        name,
+        email,
+        password,
+      });
+
+      const { token, user } = res.data;
+
+      login(user, token);  
       navigate("/");
     } catch (err: any) {
       console.error("Register error:", err);
@@ -37,28 +46,50 @@ export default function Register() {
   }
 
   return (
-    <div className="auth-page container">
-      <form className="auth-box" onSubmit={handleSubmit}>
-        <h2>Welcome to EventSpace</h2>
-        <p>please register</p>
+    <div className="auth-wrapper">
+      <form className="auth-card" onSubmit={handleSubmit}>
+        <h2>
+          Welcome to <span>EventSpace</span>
+        </h2>
+        <p>Please register</p>
 
-        <label>email</label>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} />
+        <label>Email</label>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
 
-        <label>username</label>
-        <input value={name} onChange={(e) => setName(e.target.value)} />
+        <label>Username</label>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
 
-        <label>password</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <label>Password</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
-        <label>repeat password</label>
-        <input type="password" value={repeat} onChange={(e) => setRepeat(e.target.value)} />
+        <label>Repeat password</label>
+        <input
+          type="password"
+          value={repeat}
+          onChange={(e) => setRepeat(e.target.value)}
+          required
+        />
 
-        <button type="submit" className="btn-primary" disabled={loading}>
+        <button className="btn-primary" type="submit" disabled={loading}>
           {loading ? "Registering..." : "Submit"}
         </button>
 
-        <p>already have an account? <Link to="/login">login here</Link></p>
+        <div className="auth-link">
+          Already have an account? <Link to="/login">Login here</Link>
+        </div>
       </form>
     </div>
   );

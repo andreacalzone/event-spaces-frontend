@@ -1,0 +1,119 @@
+/* Hero wrapper */
+.hero {
+  width: 100%;
+  background: var(--color-primary);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 40px auto 60px;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
+
+/* Grid: text left, image right */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Keep left content vertically centered inside its column */
+.hero-left {
+  display: flex;
+  align-items: center; /* vertical centering */
+  /* ensure text block doesn't stretch to full height on very tall images */
+  min-height: 220px;
+}
+
+/* inner wrapper to control horizontal centering & spacing */
+.hero-left-inner {
+  width: 100%;
+  max-width: 720px; /* keeps text from stretching too wide */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Title + paragraph */
+.hero-left h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: #fff;
+  line-height: 1.05;
+}
+
+.hero-left p {
+  font-size: 18px;
+  color: #fff;
+  opacity: 0.95;
+  margin-bottom: 28px;
+}
+
+/* Search pill */
+.hero-search {
+  background: white;
+  padding: 12px 14px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 560px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.hero-input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 36px;
+  background: #eee;
+  border-radius: 1px;
+}
+
+/* round search button */
+.hero-search-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.hero-search-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+/* Right image */
+.hero-right img {
+  width: 100%;
+  border-radius: 20px;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive: stack vertically and center left text */
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-left { justify-content: center; align-items: center; }
+  .hero-left-inner { align-items: center; }
+  .hero-right img { height: auto; margin-top: 20px; }
+  .hero-search { max-width: 320px; margin: 0 auto; }
+}
