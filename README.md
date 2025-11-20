@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+README — EventSpace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En Airbnb-liknande webbapplikation för att hitta, lägga upp och boka venues för evenemang.
+Projektet består av en Express + Prisma + PostgreSQL backend och en React + Vite frontend.
 
-Currently, two official plugins are available:
+Om projektet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+EventSpace är en fullstack-applikation där användare kan lista sina egna venues, samt boka andras venues per timme, ungefär som Airbnb fast för eventlokaler.
+Appen har bilduppladdning via Cloudinary, autentisering med JWT, samt en responsiv React-frontend.
 
-## React Compiler
+Huvudfunktioner - 
+Lägg upp egna venues (titel, beskrivning, pris, max capacity, bild)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Sök och filtrera venues (pris, plats m.m.)
 
-## Expanding the ESLint configuration
+Boka venues per timme
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Registrering & inloggning med JWT
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Cloudinary-uppladdning för bilder
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Översikt av sina egna upplagda venues och bokningar
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Teknikstack
+Backend
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Node.js + Express
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+PostgreSQL
+
+Prisma ORM
+
+Cloudinary (bildhosting)
+
+JWT (autentisering)
+
+Körs på: http://localhost:5050
+
+
+
+Installation & körning
+1. Klona projektet
+Frontend:
+git clone https://github.com/andreacalzone/event-spaces-frontend.git
+
+Backend:
+git clone https://github.com/andreacalzone/event-spaces-backend.git
+
+Kör Prisma migrations
+npx prisma migrate dev
+
+Starta backend
+npm run dev
+
+Backend körs sedan på: http://localhost:5050
+
+Starta frontend
+npm run dev
+
+Frontend körs på den port som Vite väljer (oftast 5173).
+
+
+
+
+
