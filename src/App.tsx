@@ -10,10 +10,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MyBookings from "./pages/MyBooking";
 import MyVenues from "./pages/MyVenues";
+import AboutUs from "./pages/AboutUs";
 
 export default function App() {
   return (
-    <div className="app-root">
+    <div className="app-root page-wrapper">
       <Header />
       <main>
         <Routes>
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/my-bookings" element={<MyBookings />} />
           <Route path="/my-venues" element={<MyVenues />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </main>
       <Footer />

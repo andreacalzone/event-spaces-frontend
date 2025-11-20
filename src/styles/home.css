@@ -1,5 +1,5 @@
 .home-wrapper {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 /* WHY CHOOSE US */
@@ -71,7 +71,7 @@
 /* HOME VENUES GRID */
 .home-venues-grid {
   max-width: 1100px;
-  margin: 20px auto 80px auto;
+  margin: 20px auto;
 
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -102,3 +102,37 @@
   font-size: 14px;
   opacity: 0.8;
 }
+
+/* =========================
+   MOBILE HOME PAGE
+========================= */
+@media (max-width: 600px) {
+  .why-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .why-card {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .venues-preview {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+
+  .home-venues-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .why-section {
+    display: none;
+  }
+  .venues-preview {
+    margin: 0px auto;
+  }
+}
+

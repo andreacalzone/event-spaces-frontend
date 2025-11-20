@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchMyBookings, cancelBooking } from "../services/api";
-import "../styles/my.css";
+import "../styles/mybooking.css";
 
 export default function MyBookings() {
   const [bookings, setBookings] = useState<any[]>([]);

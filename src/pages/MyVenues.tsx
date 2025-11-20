@@ -7,13 +7,21 @@ import {
   restoreVenue,
 } from "../services/api";
 import type { Venue } from "../types";
-import "../styles/my.css";
+import "../styles/myvenues.css";
 
 export default function MyVenues() {
   const [myVenues, setMyVenues] = useState<Venue[]>([]);
   const [loading, setLoading] = useState(true);
   const [editingVenue, setEditingVenue] = useState<number | null>(null);
   const [uploading, setUploading] = useState(false);
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 600);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   const user =
     typeof localStorage !== "undefined"
@@ -101,7 +109,7 @@ export default function MyVenues() {
   if (loading) return <p className="container">Loading…</p>;
 
   return (
-    <div className="container my-venues-wrapper">
+    <div className={`container my-venues-wrapper ${isMobile ? "mobile" : ""}`}>
       {/* LEFT COLUMN - CREATE VENUE */}
       <div className="left-column">
         <div className="venue-form-box">
@@ -158,10 +166,7 @@ export default function MyVenues() {
         <div className="my-grid">
           {myVenues.map((v) => (
             <div key={v.id} className="my-venue-card">
-              <img
-                src={v.image || "/placeholder.png"}
-                alt={v.title}
-              />
+              <img src={v.image || "/placeholder.png"} alt={v.title} />
 
               <h3>
                 {v.title} {!v.available && "(DELETED)"}

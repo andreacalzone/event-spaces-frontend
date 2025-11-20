@@ -49,3 +49,18 @@ input, textarea, select {
 /* Small helpers */
 .meta{color:var(--gray-2);font-size:13px}
 .hero-left h1{margin:0 0 8px 0}
+
+html, body, #root {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer {
+  margin-top: auto;
+}
+

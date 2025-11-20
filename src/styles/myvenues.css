@@ -1,0 +1,169 @@
+.my-venues-wrapper {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+/* LEFT COLUMN */
+.left-column {
+  top: 100px;
+}
+
+/* RIGHT COLUMN */
+.right-column h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* CREATE VENUE FORM */
+.venue-form-box {
+  background: #fff;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  border: 1px solid #eee;
+}
+
+.venue-form-box h2 {
+  text-align: center;
+  margin: 0 0 6px 0;
+}
+
+.venue-form-box label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 500;
+  color: #444;
+}
+
+.venue-form-box input,
+.venue-form-box textarea {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  border: none;
+}
+
+.venue-form-box textarea {
+  height: 130px;
+  resize: vertical;
+}
+
+/* VENUES LIST (RIGHT SIDE)*/
+.my-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* VENUE CARD */
+.my-venue-card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.my-venue-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.my-venue-card h3 {
+  margin: 12px 0 6px;
+  font-size: 18px;
+}
+
+.my-venue-card p {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+.meta {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* BUTTONS */
+.venue-card-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.venue-card-btns .btn-primary {
+  flex: 1;
+}
+
+/* EDIT FORM */
+.edit-form {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #eee;
+}
+
+.edit-form label {
+  display: block;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.edit-form input,
+.edit-form textarea {
+  width: 100%;
+  margin-top: 6px;
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.edit-form textarea {
+  height: 120px;
+}
+
+/* ============================================
+   MOBILE (max-width: 600px)
+============================================ */
+@media (max-width: 600px) {
+
+  .my-venues-wrapper.mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .venue-form-box {
+    padding: 22px;
+    margin-bottom: 10px;
+  }
+
+  .my-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .my-venue-card {
+    padding: 14px;
+  }
+
+  .my-venue-card img {
+    height: 150px;
+  }
+
+  .venue-card-btns {
+    flex-direction: column;
+  }
+
+  .venue-card-btns .btn-primary {
+    width: 100%;
+  }
+}

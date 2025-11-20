@@ -5,7 +5,6 @@ import "../styles/hero.css";
 
 export default function Hero() {
   const [query, setQuery] = useState("");
-  const [date, setDate] = useState("");
   const navigate = useNavigate();
 
   function handleSearch(e?: React.FormEvent) {
@@ -13,7 +12,6 @@ export default function Hero() {
     const q = query.trim();
     const params = new URLSearchParams();
     if (q) params.set("q", q);
-    if (date) params.set("date", date);
     navigate(`/venues?${params.toString()}`);
   }
 
@@ -32,18 +30,6 @@ export default function Hero() {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 aria-label="Search city"
-              />
-
-              <div className="hero-divider" />
-
-              <input
-                className="hero-input"
-                placeholder="Date?"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                aria-label="Date"
-                onFocus={(e) => (e.currentTarget.type = "date")}
-                onBlur={(e) => { if (!e.currentTarget.value) e.currentTarget.type = "text"; }}
               />
 
               <button type="submit" className="hero-search-btn" aria-label="Search">

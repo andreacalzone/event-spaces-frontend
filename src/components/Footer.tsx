@@ -9,39 +9,37 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
 
-        {/* LEFT LOGO */}
+        {/* LOGO */}
         <div className="footer-logo">
           <img src="/images/logo-footer.png" alt="EventSpace logo" />
         </div>
 
-        {/* LINKS */}
+        {/* LINKS – all in one column for mobile */}
         <div className="footer-links">
-          <div className="col">
-            <Link to="/">Home</Link>
-            <Link to="/venues">Venues</Link>
-            <Link to="/about">About us</Link>
-          </div>
+          <Link to="/">Home</Link>
+          <Link to="/venues">Venues</Link>
+          <Link to="/about">About us</Link>
+          <Link to="/about">Contact us</Link>
 
-          <div className="col">
-            {user && (
-              <>
-                <Link to="/my-venues">My venues</Link>
-                <Link to="/my-bookings">My bookings</Link>
-              </>
-            )}
-            <Link to="/contact">Contact us</Link>
-          </div>
+          {user && (
+            <Link to="/my-bookings">My bookings</Link>
+          )}
         </div>
 
-        {/* RIGHT SOCIAL */}
-        <div className="footer-right">
-          <div className="follow-text">Follow us</div>
+        {/* SOCIAL */}
+        <div className="footer-social">
           <div className="social-icons">
             <img src="/images/footer-fb.png" alt="Facebook" />
             <img src="/images/footer-ig.png" alt="Instagram" />
           </div>
+          <div className="follow-text">Follow us</div>
         </div>
 
+      </div>
+
+      {/* COPYRIGHT */}
+      <div className="footer-copy">
+        © 2025 EventSpace
       </div>
     </footer>
   );

@@ -7,12 +7,20 @@ import "../styles/home.css";
 import "../styles/hero.css";
 import "../styles/footer.css";
 
-
 import Hero from "../components/Hero";
 
 export default function Home() {
   const [venues, setVenues] = useState<Venue[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth <= 600);
+    }
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     fetchVenues()
@@ -44,11 +52,13 @@ export default function Home() {
 
       <section className="venues-preview">
         <h2>Available venues</h2>
-        <a className="see-all" href="/venues">See all venues →</a>
+        <a className="see-all" href="/venues">
+          See all venues →
+        </a>
       </section>
 
       <section className="home-venues-grid">
-        {venues.slice(0, 8).map((v) => (
+        {venues.slice(0, isMobile ? 3 : 8).map((v) => (
           <VenueCard key={v.id} venue={v} />
         ))}
       </section>

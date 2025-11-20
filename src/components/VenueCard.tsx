@@ -7,7 +7,6 @@ export default function VenueCard({ venue }: { venue: Venue }) {
   return (
     <article className="venue-card">
       <Link to={`/venues/${venue.id}`}>
-
         <img
           className="venue-img"
           src={venue.image || "/placeholder.png"}
@@ -16,16 +15,11 @@ export default function VenueCard({ venue }: { venue: Venue }) {
 
         <div className="venue-body">
           <h3>{venue.title}</h3>
-
-          <p className="venue-location">{venue.location || "Unknown location"}</p>
-
-          <p className="venue-price">{venue.pricePerHour} SEK / hour</p>
-
-          <p className="venue-description">
-            {venue.description?.slice(0, 90) || "No description"}
-          </p>
+          <p className="venue-location">{venue.location}</p>
+          <p className="venue-description">{venue.description}</p>
+          <p className="venue-price">{venue.pricePerHour} SEK / h</p>
+          <p className="venue-capacity">Max capacity: {venue.capacity}</p>
         </div>
-
       </Link>
     </article>
   );
